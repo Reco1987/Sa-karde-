@@ -23,7 +23,7 @@ const renderURL = 'https://husniyebot.onrender.com'; // kendi Render URL’in
 
 setInterval(() => {
   axios.get(renderURL)
-    .then(() => console.log(`📡 Render ping atıldı: ${new Date().toISOString()}`))
+    .then(() => console.log(`📡 Ping atıldı: ${new Date().toISOString()}`))
     .catch(err => console.error(`Ping hatası: ${err.message}`));
 }, 30000); // her 30 saniyede bir ping
 
@@ -36,5 +36,4 @@ app.get('/', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`🌐 Express sunucusu ${PORT} portunda çalışıyor`);
-});
+  console.log(`🌐 Express sunucusu ${PORT} port
