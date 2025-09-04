@@ -7,8 +7,9 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "bedrock-protocol": "^1.19.20",
-    "axios": "^1.6.7"
+    "bedrock-protocol": "^1.16.0",
+    "axios": "^1.6.7",
+    "express": "^4.18.2"
   },
   "engines": {
     "node": ">=18.0.0"
