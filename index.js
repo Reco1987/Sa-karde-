@@ -1,5 +1,6 @@
 const { createClient } = require('bedrock-protocol');
 const axios = require('axios');
+const express = require('express');
 
 // Minecraft sunucu bilgileri
 const client = createClient({
@@ -18,10 +19,22 @@ client.on('disconnect', (reason) => {
 });
 
 // Render’ı uyanık tutmak için ping sistemi
-const renderURL = 'https://husniyebot.onrender.com';
+const renderURL = 'https://husniyebot.onrender.com'; // kendi Render URL’in
 
 setInterval(() => {
   axios.get(renderURL)
     .then(() => console.log(`📡 Render ping atıldı: ${new Date().toISOString()}`))
     .catch(err => console.error(`Ping hatası: ${err.message}`));
-}, 30000);
+}, 30000); // her 30 saniyede bir ping
+
+// Render’ın HTTP port taramasını geçmek için Express sunucusu
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.get('/', (req, res) => {
+  res.send('HusniyeBot çalışıyor!');
+});
+
+app.listen(PORT, () => {
+  console.log(`🌐 Express sunucusu ${PORT} portunda çalışıyor`);
+});
