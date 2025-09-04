@@ -27,13 +27,4 @@ setInterval(() => {
     .catch(err => console.error(`Ping hatası: ${err.message}`));
 }, 30000); // her 30 saniyede bir ping
 
-// Render’ın HTTP port taramasını geçmek için Express sunucusu
-const app = express();
-const PORT = process.env.PORT || 3000;
-
-app.get('/', (req, res) => {
-  res.send('HusniyeBot çalışıyor!');
-});
-
-app.listen(PORT, () => {
-  console.log(`🌐 Express sunucusu ${PORT} port
+// Render
