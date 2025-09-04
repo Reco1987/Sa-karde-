@@ -1,4 +1,3 @@
-`js
 const { createClient } = require('bedrock-protocol');
 const axios = require('axios');
 
@@ -14,18 +13,15 @@ client.on('connect', () => {
   console.log('✅ HusniyeBot sunucuya bağlandı!');
 });
 
-`js
 client.on('disconnect', (reason) => {
-  console.log(❌ Bağlantı kesildi: ${reason});
+  console.log(`❌ Bağlantı kesildi: ${reason}`);
 });
-`
 
 // Render’ı uyanık tutmak için ping sistemi
-const renderURL = 'https://husniyebot.onrender.com'; // kendi Render URL’in
+const renderURL = 'https://husniyebot.onrender.com';
 
 setInterval(() => {
   axios.get(renderURL)
-    .then(() => console.log(📡 Render ping atıldı: ${new Date().toISOString()}))
-    .catch(err => console.error(Ping hatası: ${err.message}));
-}, 30000); // her 30 saniyede bir ping
-`
+    .then(() => console.log(`📡 Render ping atıldı: ${new Date().toISOString()}`))
+    .catch(err => console.error(`Ping hatası: ${err.message}`));
+}, 30000);
