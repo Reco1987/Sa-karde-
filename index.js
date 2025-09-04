@@ -4,9 +4,9 @@ const express = require('express');
 
 // Minecraft sunucu bilgileri
 const client = createClient({
-  host: 'annesinisevenler.aternos.me',
-  port: 35195,
-  username: 'HusniyeBot'
+  host: 'annesinisevenler.aternos.me', // Aternos IP
+  port: 35195,                         // Aternos port (güncel olmalı!)
+  username: 'HusniyeBot'              // Bot ismi
 });
 
 // Bağlantı olayları
