@@ -14,9 +14,11 @@ client.on('connect', () => {
   console.log('✅ HusniyeBot sunucuya bağlandı!');
 });
 
+`js
 client.on('disconnect', (reason) => {
   console.log(❌ Bağlantı kesildi: ${reason});
 });
+`
 
 // Render’ı uyanık tutmak için ping sistemi
 const renderURL = 'https://husniyebot.onrender.com'; // kendi Render URL’in
