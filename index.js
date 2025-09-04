@@ -1,13 +1,29 @@
+`js
 const { createClient } = require('bedrock-protocol');
+const axios = require('axios');
 
+// Minecraft sunucu bilgileri
 const client = createClient({
   host: 'annesinisevenler.aternos.me',
   port: 35195,
-  username: 'HusniyeBot',
-  offline: true
+  username: 'HusniyeBot'
 });
 
-client.on('join', () => {
-  console.log('✅ HusniyeBot içeride nöbette!');
+// Bağlantı olayları
+client.on('connect', () => {
+  console.log('✅ HusniyeBot sunucuya bağlandı!');
 });
 
+client.on('disconnect', (reason) => {
+  console.log(❌ Bağlantı kesildi: ${reason});
+});
+
+// Render’ı uyanık tutmak için ping sistemi
+const renderURL = 'https://husniyebot.onrender.com'; // kendi Render URL’in
+
+setInterval(() => {
+  axios.get(renderURL)
+    .then(() => console.log(📡 Render ping atıldı: ${new Date().toISOString()}))
+    .catch(err => console.error(Ping hatası: ${err.message}));
+}, 30000); // her 30 saniyede bir ping
+`
